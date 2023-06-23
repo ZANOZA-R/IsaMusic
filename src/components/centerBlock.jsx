@@ -47,18 +47,18 @@ const playlistItem = (
           </svg>
         </div>
         <div className="track__title-text">
-          <a className="track__title-link" href="http://">
+          <a className="track__title-link" href="index.html">
             Guilt <span className="track__title-span" />
           </a>
         </div>
       </div>
       <div className="track__author">
-        <a className="track__author-link" href="http://">
+        <a className="track__author-link" href="index.html">
           Nero
         </a>
       </div>
       <div className="track__album">
-        <a className="track__album-link" href="http://">
+        <a className="track__album-link" href="index.html">
           Welcome Reality
         </a>
       </div>
