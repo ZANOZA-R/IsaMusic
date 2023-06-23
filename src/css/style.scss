@@ -633,7 +633,7 @@ body {
         width: 19px;
         height: 12px;
         fill: transparent;
-        stroke: #696969;
+        stroke: #696969; 
     }
 
     &__track-play {
@@ -739,7 +739,7 @@ body {
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: end;
+        justify-content: flex-end;
     }
 
     &__image {
