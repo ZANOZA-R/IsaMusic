@@ -36,7 +36,6 @@ ul li {
   font-style: normal;
   font-display: swap;
 }
-
 //--------------------------
 
 html,
@@ -137,6 +136,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    cursor: pointer;
   }
 
   &__menu {
@@ -461,15 +461,12 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 30px;
   }
 
   &__item {
     width: 250px;
     height: 150px;
-
-    &:not(:last-child) {
-      margin-bottom: 30px;
-    }
   }
 
   &__link {
@@ -746,6 +743,7 @@ body {
     width: 4px;
     border-radius: 4px;
   }
+
   &__ul::-webkit-scrollbar-thumb {
     border-radius: 4px;
     background-color: #ffffff;
