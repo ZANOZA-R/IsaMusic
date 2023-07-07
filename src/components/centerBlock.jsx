@@ -80,43 +80,52 @@ function CenterBlock({ loading }) {
       <h2 className="centerblock__h2">Треки</h2>
       <div className="centerblock__filter filter">
         <div className="filter__title">Искать по:</div>
-        <div
-          onClick={() => toggleFilter(1)}
-          role="button"
-          tabIndex={0}
-          onKeyDown={onKeyDown}
-          className={`filter__button button-author _btn-text ${
-            filter === 1 ? "active" : null
-          }`}
-        >
-          исполнителю
-        </div>
-        <div
-          onClick={() => toggleFilter(2)}
-          role="button"
-          tabIndex={0}
-          onKeyDown={onKeyDownTwo}
-          className={`filter__button button-year _btn-text ${
-            filter === 2 ? "active" : null
-          }`}
-        >
-          году выпуска
-        </div>
-        <div
-          onClick={() => toggleFilter(3)}
-          role="button"
-          tabIndex={0}
-          onKeyDown={onKeyDownThree}
-          className={`filter__button button-genre _btn-text ${
-            filter === 3 ? "active" : null
-          }`}
-        >
-          жанру
+        <div className="filter__box">
+          <div>
+            <div
+              onClick={() => toggleFilter(1)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={onKeyDown}
+              className={`filter__button button-author _btn-text ${
+                filter === 1 ? "active" : null
+              }`}
+            >
+              исполнителю
+            </div>
+            {filter === 1 ? performerUl : null}
+          </div>
+          <div>
+            <div
+              onClick={() => toggleFilter(2)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={onKeyDownTwo}
+              className={`filter__button button-year _btn-text ${
+                filter === 2 ? "active" : null
+              }`}
+            >
+              году выпуска
+            </div>
+            {filter === 2 ? yearUl : null}
+          </div>
+          <div>
+            <div
+              onClick={() => toggleFilter(3)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={onKeyDownThree}
+              className={`filter__button button-genre _btn-text ${
+                filter === 3 ? "active" : null
+              }`}
+            >
+              жанру
+            </div>
+            {filter === 3 ? genreUl : null}
+          </div>
         </div>
       </div>
-      {filter === 1 ? performerUl : null}
-      {filter === 2 ? yearUl : null}
-      {filter === 3 ? genreUl : null}
+
       <div className="centerblock__content">
         <div className="content__title playlist-title">
           <div className="playlist-title__col col01">Трек</div>
