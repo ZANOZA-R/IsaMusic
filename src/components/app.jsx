@@ -2,7 +2,7 @@ import "../css/style.css";
 import { useEffect, useState } from "react";
 import MainNav from "./mainNav";
 import CenterBlock from "./centerBlock";
-import MainSidebar from "./mainSidebar";
+import MainSidebar from "./mainSidebar/mainSidebar";
 import Bar from "./bar";
 
 function App() {
@@ -16,8 +16,8 @@ function App() {
     <div className="container">
       <main className="main">
         <MainNav />
-        <CenterBlock loading={loading}/>
-        <MainSidebar loading={loading}/>
+        <CenterBlock loading={loading} />
+        <MainSidebar loading={loading} />
       </main>
       <div className="bar">
         <Bar loading={loading} />
