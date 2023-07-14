@@ -1,5 +1,7 @@
 import "../css/style.css";
+import { useState } from "react";
 import sprite from "../img/icon/sprite.svg";
+import Skeleton from "./skeleton";
 
 const centerblockSearch = (
   <div className="centerblock__search search">
@@ -15,77 +17,183 @@ const centerblockSearch = (
   </div>
 );
 
-const centerblockFilter = (
-  <div className="centerblock__filter filter">
-    <div className="filter__title">Искать по:</div>
-    <div className="filter__button button-author _btn-text">исполнителю</div>
-    <div className="filter__button button-year _btn-text">году выпуска</div>
-    <div className="filter__button button-genre _btn-text">жанру</div>
+const performerUl = (
+  <div className="filterList">
+    <ul className="filterList__ul">
+      <li className="filterList__text">Michael Jackson</li>
+      <li className="filterList__text">Frank Sinatra</li>
+      <li className="filterList__text">Calvin Harris</li>
+      <li className="filterList__text">Zhu</li>
+      <li className="filterList__text">Arctic Monkeys</li>
+      <li className="filterList__text">Test</li>
+      <li className="filterList__text">Test</li>
+      <li className="filterList__text">Test</li>
+      <li className="filterList__text">Test</li>
+      <li className="filterList__text">Test</li>
+      <li className="filterList__text">Test</li>
+      <li className="filterList__text">Test</li>
+      <li className="filterList__text">Test</li>
+      <li className="filterList__text">Test</li>
+      <li className="filterList__text">Test</li>
+    </ul>
+  </div>
+);
+const yearUl = <div className="filterList filterList__year" />;
+const genreUl = (
+  <div className="filterList">
+    <ul className="filterList__ul">
+      <li className="filterList__text">Рок</li>
+      <li className="filterList__text">Хип-хоп</li>
+      <li className="filterList__text">Поп-музыка</li>
+      <li className="filterList__text">Техно</li>
+      <li className="filterList__text">Инди</li>
+    </ul>
   </div>
 );
 
-const contentTitle = (
-  <div className="content__title playlist-title">
-    <div className="playlist-title__col col01">Трек</div>
-    <div className="playlist-title__col col02">ИСПОЛНИТЕЛЬ</div>
-    <div className="playlist-title__col col03">АЛЬБОМ</div>
-    <div className="playlist-title__col col04">
-      <svg className="playlist-title__svg" alt="time">
-        <use xlinkHref={`${sprite}#icon-watch`} />
-      </svg>
-    </div>
-  </div>
-);
+function CenterBlock({ loading }) {
+  const [filter, setFilter] = useState(0);
 
-const playlistItem = (
-  <div className="playlist__item">
-    <div className="playlist__track track">
-      <div className="track__title">
-        <div className="track__title-image">
-          <svg className="track__title-svg" alt="music">
-            <use xlinkHref={`${sprite}#icon-note`} />
-          </svg>
-        </div>
-        <div className="track__title-text">
-          <a className="track__title-link" href="index.html">
-            Guilt <span className="track__title-span" />
-          </a>
-        </div>
-      </div>
-      <div className="track__author">
-        <a className="track__author-link" href="index.html">
-          Nero
-        </a>
-      </div>
-      <div className="track__album">
-        <a className="track__album-link" href="index.html">
-          Welcome Reality
-        </a>
-      </div>
-      <div className="track__time">
-        <svg className="track__time-svg" alt="time">
-          <use xlinkHref={`${sprite}#icon-like`} />
-        </svg>
-        <span className="track__time-text">4:44</span>
-      </div>
-    </div>
-  </div>
-);
+  const toggleFilter = (id) => setFilter(filter === id ? 0 : id);
 
-const centerblockContent = (
-  <div className="centerblock__content">
-    {contentTitle}
-    <div className="content__playlist playlist">{playlistItem}</div>
-  </div>
-);
+  const onKeyDown = (event) => {
+    if (event.key === "Enter") {
+      toggleFilter(1);
+    }
+  };
 
-function CenterBlock() {
+  const onKeyDownTwo = (event) => {
+    if (event.key === "Enter") {
+      toggleFilter(2);
+    }
+  };
+
+  const onKeyDownThree = (event) => {
+    if (event.key === "Enter") {
+      toggleFilter(3);
+    }
+  };
+
   return (
     <div className="main__centerblock centerblock">
       {centerblockSearch}
       <h2 className="centerblock__h2">Треки</h2>
-      {centerblockFilter}
-      {centerblockContent}
+      <div className="centerblock__filter filter">
+        <div className="filter__title">Искать по:</div>
+        <div className="filter__box">
+          <div>
+            <div
+              onClick={() => toggleFilter(1)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={onKeyDown}
+              className={`filter__button button-author _btn-text ${
+                filter === 1 ? "active" : null
+              }`}
+            >
+              исполнителю
+            </div>
+            {filter === 1 ? performerUl : null}
+          </div>
+          <div>
+            <div
+              onClick={() => toggleFilter(2)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={onKeyDownTwo}
+              className={`filter__button button-year _btn-text ${
+                filter === 2 ? "active" : null
+              }`}
+            >
+              году выпуска
+            </div>
+            {filter === 2 ? yearUl : null}
+          </div>
+          <div>
+            <div
+              onClick={() => toggleFilter(3)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={onKeyDownThree}
+              className={`filter__button button-genre _btn-text ${
+                filter === 3 ? "active" : null
+              }`}
+            >
+              жанру
+            </div>
+            {filter === 3 ? genreUl : null}
+          </div>
+        </div>
+      </div>
+
+      <div className="centerblock__content">
+        <div className="content__title playlist-title">
+          <div className="playlist-title__col col01">Трек</div>
+          <div className="playlist-title__col col02">ИСПОЛНИТЕЛЬ</div>
+          <div className="playlist-title__col col03">АЛЬБОМ</div>
+          <div className="playlist-title__col col04">
+            <svg className="playlist-title__svg" alt="time">
+              <use xlinkHref={`${sprite}#icon-watch`} />
+            </svg>
+          </div>
+        </div>
+        <div className="content__playlist playlist">
+          <div className="playlist__item">
+            {loading ? (
+              <div className="playlist__track track">
+                <div className="track__title">
+                  <div className="track__title-image">
+                    <Skeleton w="51px" h="51px" />
+                  </div>
+                  <div className="track__title-text">
+                    <Skeleton w="356px" h="19px" />
+                  </div>
+                </div>
+                <div className="track__author">
+                  <Skeleton w="271px" h="19px" />
+                </div>
+                <div className="track__album">
+                  <Skeleton w="305px" h="19px" />
+                </div>
+                <div className="track__time">
+                  <Skeleton w="60.8px" h="19px" />
+                </div>
+              </div>
+            ) : (
+              <div className="playlist__track track">
+                <div className="track__title">
+                  <div className="track__title-image">
+                    <svg className="track__title-svg" alt="music">
+                      <use xlinkHref={`${sprite}#icon-note`} />
+                    </svg>
+                  </div>
+                  <div className="track__title-text">
+                    <a className="track__title-link" href="index.html">
+                      Guilt <span className="track__title-span" />
+                    </a>
+                  </div>
+                </div>
+                <div className="track__author">
+                  <a className="track__author-link" href="index.html">
+                    Nero
+                  </a>
+                </div>
+                <div className="track__album">
+                  <a className="track__album-link" href="index.html">
+                    Welcome Reality
+                  </a>
+                </div>
+                <div className="track__time">
+                  <svg className="track__time-svg" alt="time">
+                    <use xlinkHref={`${sprite}#icon-like`} />
+                  </svg>
+                  <span className="track__time-text">4:44</span>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
