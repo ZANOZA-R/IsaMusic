@@ -1,9 +1,9 @@
 import "../css/style.css";
 import { useEffect, useState } from "react";
 import MainNav from "./mainNav";
-import CenterBlock from "./centerBlock";
+import CenterBlock from "./centerBlok/centerBlock";
 import MainSidebar from "./mainSidebar/mainSidebar";
-import Bar from "./bar";
+import Bar from "./bar/bar";
 
 function App() {
   const [loading, setLoading] = useState(true);
