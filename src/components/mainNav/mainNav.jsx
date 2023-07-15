@@ -25,9 +25,9 @@ function MainNav() {
         onKeyDown={onKeyDown}
         className={style.nav__burger}
       >
-        <span className={style.burger__line} />
-        <span className={style.burger__line} />
-        <span className={style.burger__line} />
+        <span className={style.nav__line} />
+        <span className={style.nav__line} />
+        <span className={style.nav__line} />
       </div>
       {visible && (
         <div className={style.nav__menu}>

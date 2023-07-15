@@ -34,7 +34,7 @@
     cursor: pointer;
   }
   
-.burger__line {
+.nav__line {
       display: inline-block;
       width: 100%;
       height: 1px;
