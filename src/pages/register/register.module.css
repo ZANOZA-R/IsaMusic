@@ -1,0 +1,16 @@
+.register {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 500px;
+}
+
+.register__header {
+    font-size: 100px;
+}
+
+.register__button {
+    font-size: 50px;
+    width: 500px;
+    height: 50px;
+}
