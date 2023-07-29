@@ -1,6 +1,7 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import logo from "../../img/logo.png";
-import style from "./mainNav.module.css"
+import style from "./mainNav.module.css";
 
 function MainNav() {
   const [visible, setVisible] = useState(false);
@@ -33,19 +34,13 @@ function MainNav() {
         <div className={style.nav__menu}>
           <ul className={style.menu__list}>
             <li className={style.menu__item}>
-              <a href="http://" className={style.menu__link}>
-                Главное
-              </a>
+              <Link to="/main" className={style.menu__link}>Главное</Link>
             </li>
             <li className={style.menu__item}>
-              <a href="http://" className={style.menu__link}>
-                Мой плейлист
-              </a>
+              <Link to="/favorites" className={style.menu__link}>Мой плейлист</Link>
             </li>
             <li className={style.menu__item}>
-              <a href="http://" className={style.menu__link}>
-                Войти
-              </a>
+              <Link to="/" className={style.menu__link}>Выйти</Link>
             </li>
           </ul>
         </div>

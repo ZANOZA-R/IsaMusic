@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import playlist01 from "../../img/playlist01.png";
 import playlist02 from "../../img/playlist02.png";
 import playlist03 from "../../img/playlist03.png";
@@ -23,31 +24,31 @@ function MainSidebar({ loading }) {
         <div className={style.sidebar__block}>
           <div className={style.sidebar__list}>
             <div className={style.sidebar__item}>
-              <a className={style.sidebar__link} href="index.html">
+              <Link to="/category/1" className={style.sidebar__link} href="index.html">
                 <img
                   className={style.sidebar__img}
                   src={playlist01}
                   alt="day's playlist"
                 />
-              </a>
+              </Link>
             </div>
             <div className={style.sidebar__item}>
-              <a className={style.sidebar__link} href="index.html">
+              <Link to="/category/2" className={style.sidebar__link} href="index.html">
                 <img
                   className={style.sidebar__img}
                   src={playlist02}
                   alt="day's playlist"
                 />
-              </a>
+              </Link>
             </div>
             <div className={style.sidebar__item}>
-              <a className={style.sidebar__link} href="index.html">
+              <Link to="/category/3" className={style.sidebar__link} href="index.html">
                 <img
                   className={style.sidebar__img}
                   src={playlist03}
                   alt="day's playlist"
                 />
-              </a>
+              </Link>
             </div>
           </div>
         </div>

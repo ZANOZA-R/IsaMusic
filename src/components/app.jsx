@@ -1,29 +1,10 @@
-import { useEffect, useState } from "react";
-import MainNav from "./mainNav/mainNav";
-import CenterBlock from "./centerBlok/centerBlock";
-import MainSidebar from "./mainSidebar/mainSidebar";
-import Bar from "./bar/bar";
-import style from "./app.module.css";
+import { useState } from "react";
+import AppRoutes from "./routes/routes";
 
 function App() {
-  const [loading, setLoading] = useState(true);
+  const [token, setToken] = useState(false)
 
-  useEffect(() => {
-    setTimeout(() => setLoading(false), 3000);
-  }, []);
-
-  return (
-    <div className={style.container}>
-      <main className={style.main}>
-        <MainNav />
-        <CenterBlock loading={loading} />
-        <MainSidebar loading={loading} />
-      </main>
-      <div className={style.bar}>
-        <Bar loading={loading} />
-      </div>
-    </div>
-  );
+  return <AppRoutes token={token} setToken={setToken}/>;
 }
 
 export default App;
