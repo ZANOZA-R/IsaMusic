@@ -4,22 +4,43 @@ import CenterBlock from "../../components/centerBlok/centerBlock";
 import MainSidebar from "../../components/mainSidebar/mainSidebar";
 import Bar from "../../components/bar/bar";
 import style from "./main.module.css";
+import getTracksAll from "../../api/api";
 
 function Main() {
   const [loading, setLoading] = useState(true);
+  const [allTracks, setAllTracks] = useState(null);
+  const [getError, setGetError] = useState(null);
+  const [track, setTrack] = useState(null);
+
+  const asyncGetTracksAll = async () => {
+    try {
+      const response = await getTracksAll();
+      setAllTracks(response);
+    } catch (error) {
+      setGetError(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
-    setTimeout(() => setLoading(false), 3000);
+    asyncGetTracksAll();
   }, []);
+
   return (
     <div className={style.container}>
       <main className={style.main}>
         <MainNav />
-        <CenterBlock loading={loading} />
+        <CenterBlock
+          allTracks={allTracks}
+          getError={getError}
+          loading={loading}
+          setTrack={setTrack}
+        />
         <MainSidebar loading={loading} />
       </main>
       <div className={style.bar}>
-        <Bar loading={loading} />
+        {track ? <Bar loading={loading} track={track} /> : null}
       </div>
     </div>
   );

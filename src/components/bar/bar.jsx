@@ -2,7 +2,7 @@ import sprite from "../../img/icon/sprite.svg";
 import Skeleton from "../skeleton";
 import style from "./bar.module.css";
 
-function Bar({ loading }) {
+function Bar({ loading, track }) {
   return (
     <div className={style.bar__content}>
       <div className={style.bar__playerProgress} />
@@ -58,12 +58,12 @@ function Bar({ loading }) {
                 </div>
                 <div className={style.trackPlay__author}>
                   <a className={style.trackPlay__authorLink} href="index.html">
-                    Ты та...
+                    {track.name}
                   </a>
                 </div>
                 <div className={style.trackPlay__album}>
                   <a className={style.trackPlay__albumLink} href="index.html">
-                    Баста
+                    {track.author}
                   </a>
                 </div>
               </div>
