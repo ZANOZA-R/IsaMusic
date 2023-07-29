@@ -13,7 +13,7 @@ function AppRoutes({ token, setToken }) {
       <Route path="/" element={<Login setToken={setToken} />} />
       <Route path="/register" element={<Register />} />
       <Route element={<ProtectedRoute token={token} />}>
-        <Route path="/main" element={<Main />} />
+        <Route path="/main" element={<Main  />} />
         <Route path="/favorites" element={<Favorites />} />
         <Route path="/category/:id" element={<Category />} />
       </Route>

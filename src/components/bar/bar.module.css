@@ -148,6 +148,7 @@
 .trackPlay__album {
     grid-area: album;
     min-width: 49px;
+    white-space: nowrap;
 }
 
 .trackPlay__albumLink {
